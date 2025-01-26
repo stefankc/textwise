@@ -1,0 +1,196 @@
+:root {
+  --rename-input-width: 300px; /* Define a constant width for the rename input */
+}
+
+.home-page {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.dropzone {
+  border: 2px dashed #007bff;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.dropzone.active {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.dropzone p {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.files-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.file-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1em;
+  flex-grow: 1;
+}
+
+.edit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.edit-options {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.rename-button,
+.delete-button,
+.save-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: background-color 0.3s;
+}
+
+.save-button {
+  background-color: #28a745;
+}
+
+.rename-button:hover {
+  background-color: #5a6268;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  margin: 10px;
+  
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed; /* Use fixed to center relative to the viewport */
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 8px;
+  box-shadow: 0 5px 16px rgba(0,0,0,0.2);
+}
+
+#rename-input {
+  width: var(--rename-input-width); /* Apply the constant width */
+  max-width: 100%;
+}
+
+.rename-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #6c757d;
+}
+
+.close-button:hover {
+  color: #dc3545;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-buttons button {
+  margin-left: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-buttons button:first-of-type {
+  background-color: #28a745;
+  color: white;
+}
+
+.modal-buttons button:last-of-type {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Optionally hide the existing cancel button if replaced */
+.modal-buttons .cancel-button {
+  display: none;
+}
+

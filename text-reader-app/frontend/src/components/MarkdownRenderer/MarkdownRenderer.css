@@ -1,0 +1,168 @@
+.paragraph-container {
+  display: flex;
+  align-items: flex-start;
+  /* Startet die Ausrichtung oben */
+  margin-bottom: 20px;
+  position: relative;
+  /* Für relative Positionierung der Notizen */
+  transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  width: 100%; /* Erweiterte Breite */
+}
+
+.paragraph-container:hover {
+  background-color: rgba(76, 76, 76, 0.1); /* Etwas dunkler beim Hover */
+  border-radius: 10px; /* Abgerundete Ecken */
+}
+
+.paragraph-container p {
+  flex: 1;
+  cursor: pointer;
+  padding-right: 20px;
+  /* Platz für Notizen */
+  position: relative;
+  margin-top: 0;
+  /* Entfernt unerwünschte obere Abstände */
+}
+
+.notes-inline {
+  display: flex;
+  flex-direction: column;
+  /* Vertikale Anordnung der Notizen */
+  align-items: flex-start;
+  /* Links ausrichten */
+  margin-left: 20px;
+  width: 300px;
+  /* Feste Breite für Notizen */
+}
+
+.note {
+  background-color: #fff8dc;
+  padding: 10px;
+  border-left: 4px solid #ffeb3b;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  /* Mindestens die Höhe des Containers */
+  box-sizing: border-box;
+}
+
+.add-note-container {
+  width: 100%;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* Startet oben */
+  opacity: 0;
+  visibility: hidden;
+  
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.paragraph-container:hover .add-note-container,
+.paragraph-container .add-note-container:focus-within {
+  opacity: 1;
+  visibility: visible;
+  background-color: rgba(255, 255, 255, 0.9);
+  
+
+  /* Optional: Leicht transparent */
+}
+
+.add-note-input {
+  width: 100%;
+  /* Volle Breite innerhalb des Containers */
+  height: 100%;
+  /* Höhe an den Container anpassen */
+  min-height: 60px;
+  /* Mindesthöhe */
+  resize: vertical;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px dashed #007bff;
+  /* Dargestellter Rahmen als Hinweis */
+  border-radius: 4px;
+  background: transparent;
+  /* Hintergrund transparent */
+  color: #333;
+  overflow: auto;
+  /* Scrollbar, wenn Inhalt größer ist */
+}
+
+.add-note-input::placeholder {
+  color: #007bff;
+  /* Placeholder Farbe */
+}
+
+.add-note-input:focus {
+  border-color: #0056b3;
+  outline: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .paragraph-container {
+    flex-direction: column;
+  }
+
+  .notes-inline {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .add-note-container {
+    width: 100%;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.0);
+    /* Entfernt die Hintergrundfarbe auf kleinen Bildschirmen */
+  }
+
+  .add-note-input {
+    width: 100%;
+    min-height: 60px;
+  }
+}
+
+
+/* Hinzufügen von Stilen für geordnete und ungeordnete Listen */
+.markdown-page ul,
+.markdown-page ol {
+  margin-left: 10px; /* Einrückung von Listen */
+  max-width: 610px; /* Begrenzung der maximalen Breite */
+  word-wrap: break-word; /* Umbrüche innerhalb der Listenpunkte */
+  text-align: justify;
+  line-height: 1.6; /* Zeilenabstand wie bei normalen Paragraphen */
+
+  
+}
+
+.markdown-page li {
+  margin-bottom: 10px; /* Abstand zwischen den Listenpunkten */
+}
+
+/* Optional: Anpassung der Listensymbole */
+.markdown-page ul {
+  list-style-type: disc; /* Standard-Symbole für ungeordnete Listen */
+}
+
+.markdown-page ol {
+  list-style-type: decimal; /* Standard-Symbole für geordnete Listen */
+}
+
+/* Responsive Anpassungen für Listen */
+@media screen and (max-width: 768px) {
+  .markdown-page ul,
+  .markdown-page ol {
+    margin-left: 15px; /* Weniger Einrückung auf kleinen Bildschirmen */
+  }
+}
+
+/* Keine Farbstile für .delete-button */
+

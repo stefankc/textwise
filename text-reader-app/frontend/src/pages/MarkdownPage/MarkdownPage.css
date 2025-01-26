@@ -1,0 +1,30 @@
+.markdown-page {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Optional: Stil für die gesamte Seite */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  /* Removed margin-left to avoid affecting markdown rendering */
+}
+
+.markdown-page h1, 
+.markdown-page h2, 
+.markdown-page h3, 
+.markdown-page h4, 
+.markdown-page h5, 
+.markdown-page h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  text-align: left;
+  max-width: 700px;
+}
+
+.markdown-page p {
+  line-height: 1.6;
+  text-align: justify;
+}
+

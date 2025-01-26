@@ -1,0 +1,231 @@
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --secondary-color: #28a745;
+  --secondary-hover: #1e7e34;
+  --danger-color: #dc3545;
+  --danger-hover: #bd2130;
+  --light-bg: #f8f9fa;
+  --border-color: #dee2e6;
+  --text-color: #333;
+  --text-muted: #6c757d;
+}
+
+/* Note.css */
+
+.note {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  position: relative;
+  background-color: var(--light-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  transition: box-shadow 0.3s ease;
+  text-align: justify; /* Text im Blocksatz */
+  hyphens: auto;       /* Automatische Silbentrennung */
+  white-space: normal; /* Standard-Textfluss */
+  font-size: 0.8rem; /* Schriftgröße einstellen */
+
+}
+
+.note:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Delete-Button */
+.note .delete-button {
+  color: black !important; /* Erzwingt die schwarze Farbe */
+  font-size: 0.8rem; /* Beibehaltung der Schriftgröße */
+  padding: 0; /* Kein zusätzliches Padding */
+  background: none; /* Keine Hintergrundfarbe */
+  border: none; /* Kein Rahmen */
+  cursor: pointer;
+  transition: none; /* Entfernt Farbtransition */
+  position: absolute; /* Absolute Positionierung */
+  top: 10px; /* Abstand vom oberen Rand */
+  right: 10px; /* Abstand vom rechten Rand */
+}
+
+.note .delete-button:hover {
+  color: black !important; /* Beibehaltet die schwarze Farbe beim Hover */
+  /* Entfernt die Hover-Farbe */
+}
+
+.note-content,
+.note-input {
+  width: 85%;
+  text-align: justify; /* Blocksatz für bessere Lesbarkeit */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal; /* Standardtextfluss */
+  hyphens: auto;
+  resize: vertical;
+  font-family: Arial, sans-serif;
+}
+
+
+.markdown-content {
+  line-height: 1.6;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.markdown-content p,
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: 1em;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  padding-left: 1.5em;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  /* Nimmt die gesamte verfügbare Breite ein */
+  max-width: 100%;
+  /* Überschreitet nicht die Breite des übergeordneten Blocks */
+  box-sizing: border-box;
+  /* Berücksichtigt Padding und Border in der Breitenberechnung */
+}
+
+.feedback-button,
+.regenerate-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.feedback-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.feedback-button:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+.regenerate-button {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.regenerate-button:hover:not(:disabled) {
+  background-color: var(--secondary-hover);
+}
+
+.feedback-button:disabled,
+.regenerate-button:disabled {
+  background-color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.loading-spinner {
+  margin-left: 0.5rem;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2.5rem;
+  border-radius: 8px;
+  max-width: 95%; /* Slightly reduced from 100% for margins */
+  width: 650px; /* Increased from 1200px */
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  margin-top: 1rem;
+  text-align: justify;
+
+}
+
+.close-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--text-muted);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .note {
+    max-width: 100%;
+  }
+
+  .modal {
+    width: 95%;
+    padding: 1rem;
+  }
+}
+
+/* Also update the ReactModal__Content class to match */
+.ReactModal__Content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2.5rem;
+  border-radius: 8px;
+  max-width: 95%;
+  width: 650px !important;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative !important; /* Override default positioning */
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  margin: auto;
+  max-width: 95% !important;
+}

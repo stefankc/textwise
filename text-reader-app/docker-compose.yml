@@ -1,0 +1,55 @@
+services:
+
+  database:
+    image: postgres:14.13
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: notesdb
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - app-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:8000"
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000" # Backend API port
+      - "3000:3000" # Frontend development server port
+    env_file:
+      - backend/.env
+      - frontend/.env
+    environment:
+      - PORT=3000 # React development server port
+      - BACKEND_PORT=8000 # Backend server port
+      - HOST=0.0.0.0 # Allow external connections
+      - WDS_SOCKET_PORT=3000 # WebSocket port for hot reloading
+    depends_on:
+      - database
+    restart: always
+    networks:
+      - app-network
+
+volumes:
+  database-data:
+
+
+networks:
+  app-network:
+    driver: bridge
