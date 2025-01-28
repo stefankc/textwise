@@ -48,7 +48,8 @@ Textwise is an application designed to help users summarize reading material to 
   ```bash
   docker compose down --volumes
   docker compose build --no-cache
-  docker compose up -d```
+  docker compose up -d
+  ```
 
 # Research Context
 
