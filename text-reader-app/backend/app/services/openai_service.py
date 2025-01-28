@@ -60,11 +60,11 @@ class OpenAIService:
 ## Summarization Technique Description
 
 - **SUMMARIZATION TECHNIQUE** works as follows:
-  1. **If it is the First or Second Paragraph:** Summarize each paragraph individually in one sentence.
+  1. **If the last Paragraph is the First or Second Paragraph of the text:** Summarize the last paragraph individually in one sentence.
       - Focus only on the main idea of the respective paragraph.
-  2. **If it is the Third Paragraph or Later:** Use two sentences to summarize:
+  2. **If the last Paragraph is the Third Paragraph or Later of the text:** Use two sentences to summarize:
       - The first sentence summarizes the main theme of all prior paragraphs.
-      - The second sentence captures the main idea of the most recent paragraph.
+      - The second sentence captures the main idea of the last paragraph.
 
 - **IMPORTANT:** Only one of these approaches is used at a time, depending on the paragraph number being summarized.
 - **CONTENT LIMITATIONS:** Use only the provided context; avoid external knowledge or additional details.
@@ -88,6 +88,7 @@ This limitation may restrict the ability to fully capture all details or nuances
       - The language should be concise and unambiguous.
   3. **Structure:** Does the summary align with the described summarization technique?
       - Give feedback if there are more or less sentences than expected.
+      - Don’t count non-content blocks as paragraphs such as Author and Affiliation Blocks, Footers, Page Numbers, Headers, Citations, References, Acknowledgments, and Disclaimers.
 
 ## Feedback Instructions
 
@@ -99,18 +100,18 @@ This limitation may restrict the ability to fully capture all details or nuances
 
 ## 2. Clarity
 [Your evaluation]
-- Comment on readability and understandability.
+- Comment on readability, understandability and if there are grammar mistakes and redundancy.
 
 ## 3. Structure
 [Your evaluation]
 - Give feedback if there are more or less sentences than expected.
-- First or Second Paragraph: Check if each paragraph is summarized in one sentence.
+- First or Second Paragraph: Check if the last paragraph is summarized in a single sentence and that only one sentence is used.
 - Third Paragraph or Later: Ensure the two-sentence structure is followed.
 
 ## 4. Suggestions for Improvement
 [Your suggestions]
 - Offer actionable and specific tips for improvement while considering the constraints.
-- Provide an optimal solution for this paragraph, that is short and without unnecessary details.
+- Provide an optimal solution for the last paragraph, that is short and without unnecessary details.
             """
 
             # Logging the generated prompt
