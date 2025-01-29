@@ -1,10 +1,10 @@
 # Textwise
 
-Textwise is an application designed to help users summarize reading material to enhance comprehension and information retention. It is particularly beneficial for students, researchers, and professionals who regularly engage with dense or technical content.
+Textwise is an application designed to help users summarize reading material to enhance comprehension and information retention. It is developed for students, researchers, and professionals who regularly engage with dense or technical content.
 
 ## Features
 - **Structured Summarization**: Guides users through step-by-step summarization of texts.
-- **AI-Based Feedback**: Provides immediate feedback powered by AI (using OpenAI's GPT-4 and LLamaParse) to improve summary quality.
+- **AI-Based Feedback**: Provides immediate feedback powered by LLM using OpenAI's GPT-4o to improve summary quality.
 - **User-Friendly Interface**: Simple navigation with integrated settings for API key management.
 
 ## Installation
