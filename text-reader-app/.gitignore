@@ -5,7 +5,6 @@
 __pycache__
 
 # Environment variable files
-.env
 .env.local
 .env.development.local
 .env.test.local
